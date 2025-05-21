@@ -118,6 +118,12 @@ const VerticalMenu = ({ scrollMenu }: { scrollMenu: (container: any, isPerfectSc
           </MenuItem>
         </MenuSection>
 
+        <MenuSection label='Communication'>
+          <MenuItem href='/chat/inbox' icon={<i className='ri-message-3-line' />}>
+            Message Center
+          </MenuItem>
+        </MenuSection>
+
         <MenuSection label='Settings'>
           <MenuItem href='/settings/profile' icon={<i className='ri-user-settings-line' />}>
             Profile Settings
