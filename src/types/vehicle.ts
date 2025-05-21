@@ -5,4 +5,5 @@ export type Vehicle = {
   capacity: string;
   status: 'Active' | 'Maintenance' | 'Out of Service';
   lastMaintenanceDate: string;
+  images?: string[];
 }
