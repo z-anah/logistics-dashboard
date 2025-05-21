@@ -46,6 +46,5 @@ This project showcases my ability to build **business-critical back-office tools
 ## 🔗 Demo & Code
 
 - **Live Demo**: _[your live link]_  
-- **GitHub Repo**: _[your GitHub repo link]_  
 - **Project Type**: React, Single Page App, Admin Panel  
 - **Freelance Role**: UI Developer, Frontend Engineer
