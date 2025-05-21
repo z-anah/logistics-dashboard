@@ -74,38 +74,17 @@ const VerticalMenu = ({ scrollMenu }: { scrollMenu: (container: any, isPerfectSc
           <MenuItem href='/delivery/list' icon={<i className='ri-truck-line' />}>
             Delivery List
           </MenuItem>
-          <MenuItem href='/delivery/detail' icon={<i className='ri-file-list-3-line' />}>
-            Delivery Detail
-          </MenuItem>
           <MenuItem href='/delivery/create' icon={<i className='ri-add-circle-line' />}>
             Create Delivery
           </MenuItem>
-        </MenuSection>
-
-        <MenuSection label='Driver Management'>
           <MenuItem href='/drivers/list' icon={<i className='ri-user-2-line' />}>
             Driver List
           </MenuItem>
-          <MenuItem href='/drivers/profile' icon={<i className='ri-profile-line' />}>
-            Driver Profile
-          </MenuItem>
-        </MenuSection>
-
-        <MenuSection label='Vehicle Management'>
           <MenuItem href='/vehicles/list' icon={<i className='ri-car-line' />}>
             Vehicle List
           </MenuItem>
-          <MenuItem href='/vehicles/detail/:id' icon={<i className='ri-information-line' />}>
-            Vehicle Detail
-          </MenuItem>
-        </MenuSection>
-
-        <MenuSection label='Customer Management'>
           <MenuItem href='/customers/list' icon={<i className='ri-team-line' />}>
             Customer List
-          </MenuItem>
-          <MenuItem href='/customers/detail/:id' icon={<i className='ri-user-settings-line' />}>
-            Customer Detail
           </MenuItem>
         </MenuSection>
 

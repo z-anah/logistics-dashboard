@@ -1,6 +1,7 @@
 'use client'
 
 import { Box, Grid, Card, CardContent, Typography } from '@mui/material'
+import { LineChart, BarChart } from '@mui/x-charts'
 import { dashboardStats } from '@/data/dashboard-stats'
 
 export default function OverviewPage() {
@@ -119,6 +120,91 @@ export default function OverviewPage() {
               </Box>
               <Typography variant='h4'>{dashboardStats.efficiency.averageDeliveryTime}</Typography>
               <Typography variant='subtitle2' color='text.secondary'>Per delivery</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+      {/* Medium sized charts */}
+      <Grid container spacing={3} sx={{ mt: 3 }}>
+        {/* Delivery Trends Chart */}
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: 400 }}>
+            <CardContent>
+              <Typography variant='h6' sx={{ mb: 2 }}>Delivery Trends</Typography>
+              <LineChart
+                xAxis={[{ 
+                  data: dashboardStats.charts.deliveryTrends.months,
+                  scaleType: 'band'
+                }]}
+                series={[
+                  { 
+                    data: dashboardStats.charts.deliveryTrends.data.onTime,
+                    label: 'On Time',
+                    color: '#2196f3'
+                  },
+                  {
+                    data: dashboardStats.charts.deliveryTrends.data.delayed,
+                    label: 'Delayed',
+                    color: '#ff9800'
+                  }
+                ]}
+                height={300}
+                margin={{ top: 20, bottom: 30, left: 40, right: 20 }}
+              />
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Revenue Growth Chart */}
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: 400 }}>
+            <CardContent>
+              <Typography variant='h6' sx={{ mb: 2 }}>Revenue Growth</Typography>
+              <BarChart
+                xAxis={[{ 
+                  data: dashboardStats.charts.revenueGrowth.months,
+                  scaleType: 'band'
+                }]}
+                series={[
+                  { 
+                    data: dashboardStats.charts.revenueGrowth.data,
+                    color: '#4caf50'
+                  }
+                ]}
+                height={300}
+                margin={{ top: 20, bottom: 30, left: 40, right: 20 }}
+              />
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Driver Performance Chart */}
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: 400 }}>
+            <CardContent>
+              <Typography variant='h6' sx={{ mb: 2 }}>Driver Performance</Typography>
+              <BarChart
+                xAxis={[{ data: dashboardStats.charts.driverPerformance.metrics, scaleType: 'band' }]}
+                series={[{ data: dashboardStats.charts.driverPerformance.data, color: '#9c27b0' }]}
+                height={300}
+                margin={{ top: 20, bottom: 30, left: 40, right: 20 }}
+              />
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Fuel Consumption Chart */}
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: 400 }}>
+            <CardContent>
+              <Typography variant='h6' sx={{ mb: 2 }}>Fuel Consumption</Typography>
+              <LineChart
+                xAxis={[{ data: dashboardStats.charts.fuelConsumption.months, scaleType: 'band' }]}
+                series={[{ data: dashboardStats.charts.fuelConsumption.data, color: '#ff5722' }]}
+                height={300}
+                margin={{ top: 20, bottom: 30, left: 40, right: 20 }}
+              />
             </CardContent>
           </Card>
         </Grid>

@@ -35,5 +35,26 @@ export const dashboardStats = {
     averageDeliveryTime: '45 mins',
     fuelEfficiency: '8.5 km/L',
     routeOptimization: '88%'
+  },
+  charts: {
+    deliveryTrends: {
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      data: {
+        onTime: [85, 88, 92, 87, 90, 95],
+        delayed: [15, 12, 8, 13, 10, 5]
+      }
+    },
+    revenueGrowth: {
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      data: [22000, 25000, 28000, 24000, 30000, 32000]
+    },
+    driverPerformance: {
+      metrics: ['Speed', 'Safety', 'Efficiency', 'Service'],
+      data: [85, 92, 88, 95]
+    },
+    fuelConsumption: {
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      data: [8.2, 8.5, 8.3, 8.6, 8.4, 8.5]
+    }
   }
 }
