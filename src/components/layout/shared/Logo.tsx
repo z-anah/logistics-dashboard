@@ -2,6 +2,7 @@
 
 // React Imports
 import type { CSSProperties } from 'react'
+import Image from 'next/image'
 
 // Third-party Imports
 import styled from '@emotion/styled'
@@ -28,8 +29,15 @@ const LogoText = styled.span<LogoTextProps>`
 
 const Logo = ({ color }: { color?: CSSProperties['color'] }) => {
   return (
-    <div className='flex items-center min-bs-[24px]'>
-      <MaterioLogo className='text-[22px] text-primary' />
+    <div className='flex items-center justify-center min-bs-[24px]'>
+      <Image
+        src='/images/logo.png'
+        alt='Logo'
+        width={40}
+        height={40}
+        priority
+        style={{ display: 'flex' }}
+      />
       <LogoText color={color}>{themeConfig.templateName}</LogoText>
     </div>
   )

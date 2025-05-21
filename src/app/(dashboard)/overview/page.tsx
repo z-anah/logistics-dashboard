@@ -1,6 +1,7 @@
 'use client'
 
 import { Box, Grid, Card, CardContent, Typography } from '@mui/material'
+import { dashboardStats } from '@/data/dashboard-stats'
 
 export default function OverviewPage() {
   return (
@@ -60,6 +61,64 @@ export default function OverviewPage() {
               </Box>
               <Typography variant='h4'>15/20</Typography>
               <Typography variant='subtitle2' color='text.secondary'>Vehicles in service</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Customer Satisfaction */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Card>
+            <CardContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <i className="ri-emotion-happy-line text-2xl text-pink-500 mr-2" />
+                <Typography variant='subtitle1'>Customer Satisfaction</Typography>
+              </Box>
+              <Typography variant='h4'>{dashboardStats.customerStats.satisfaction}/5.0</Typography>
+              <Typography variant='subtitle2' color='text.secondary'>
+                {dashboardStats.customerStats.totalReviews} total reviews
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Route Optimization */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Card>
+            <CardContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <i className="ri-route-line text-2xl text-indigo-500 mr-2" />
+                <Typography variant='subtitle1'>Route Optimization</Typography>
+              </Box>
+              <Typography variant='h4'>{dashboardStats.efficiency.routeOptimization}</Typography>
+              <Typography variant='subtitle2' color='text.secondary'>Efficiency rate</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Fuel Efficiency */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Card>
+            <CardContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <i className="ri-gas-station-line text-2xl text-orange-500 mr-2" />
+                <Typography variant='subtitle1'>Fuel Efficiency</Typography>
+              </Box>
+              <Typography variant='h4'>{dashboardStats.efficiency.fuelEfficiency}</Typography>
+              <Typography variant='subtitle2' color='text.secondary'>Average consumption</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Delivery Time */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Card>
+            <CardContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <i className="ri-time-line text-2xl text-cyan-500 mr-2" />
+                <Typography variant='subtitle1'>Avg Delivery Time</Typography>
+              </Box>
+              <Typography variant='h4'>{dashboardStats.efficiency.averageDeliveryTime}</Typography>
+              <Typography variant='subtitle2' color='text.secondary'>Per delivery</Typography>
             </CardContent>
           </Card>
         </Grid>

@@ -3,11 +3,11 @@ export type Report = {
   type: 'delivery' | 'performance'
   dateGenerated: string
   dataSummary: {
-    totalDeliveries?: number
-    onTimeDeliveries?: number
+    totalDeliveries: number
+    onTimeDeliveries: number
     delayedDeliveries?: number
     averageDeliveryTime?: number
-    totalRevenue?: number
-    customerSatisfaction?: number
+    totalRevenue: number
+    customerSatisfaction: number
   }
 }
