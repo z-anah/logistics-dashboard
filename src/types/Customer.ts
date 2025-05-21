@@ -7,10 +7,3 @@ export type Customer = {
   status: 'Active' | 'Inactive';
   images?: string[];
 }
-export interface Customer {
-    CustomerID: string;
-    Name: string;
-    Address: string;
-    Phone: string;
-    Email: string;
-}

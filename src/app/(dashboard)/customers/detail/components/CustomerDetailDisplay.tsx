@@ -1,6 +1,5 @@
 'use client'
 
-import { Customer } from '@/types/customer'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
@@ -8,6 +7,7 @@ import Grid from '@mui/material/Grid'
 import Chip from '@mui/material/Chip'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import { Customer } from '@/types/Customer'
 
 interface CustomerDetailDisplayProps {
   customer: Customer
