@@ -17,17 +17,20 @@ This project showcases my ability to build **business-critical back-office tools
 - 🔄 **Modular components** for deliveries, drivers, and reports  
 - 📍 **Tracking logic UI** for delivery status & locations  
 - 🗂️ **Admin layout** with sidebar navigation, routing, and roles  
+- 💬 **Real-time chat system** with quick replies and message history
 - 🔒 **Auth pages** with role-based access templates  
 
 ---
 
 ## 🛠 Tech Stack
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Router](https://img.shields.io/badge/ReactRouter-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-3E8E41?style=for-the-badge&logo=leaflet&logoColor=white)
 
 ---
 
@@ -45,4 +48,4 @@ This project showcases my ability to build **business-critical back-office tools
 - **Live Demo**: _[your live link]_  
 - **GitHub Repo**: _[your GitHub repo link]_  
 - **Project Type**: React, Single Page App, Admin Panel  
-- **Freelance Role**: UI Developer, Frontend Engineer  
+- **Freelance Role**: UI Developer, Frontend Engineer
