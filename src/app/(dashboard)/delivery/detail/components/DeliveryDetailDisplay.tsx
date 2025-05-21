@@ -14,6 +14,9 @@ import Button from '@mui/material/Button'
 import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
+import { useEffect, useRef } from 'react'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
 interface DeliveryDetailProps {
   delivery: Delivery
@@ -64,6 +67,79 @@ const DetailRow = ({ label, value, icon }: { label: string; value: string; icon?
     <Typography variant="body1" sx={{ fontWeight: 500 }}>{value}</Typography>
   </Box>
 )
+
+type DeliveryMapProps = {
+  pickupLocation: [number, number]
+  dropoffLocation: [number, number]
+  truckLocation: [number, number]
+  routeCoordinates: [number, number][]
+  progressIndex: number
+}
+
+const DeliveryMap = ({ pickupLocation, dropoffLocation, truckLocation, routeCoordinates, progressIndex }: DeliveryMapProps) => {
+  const mapRef = useRef<L.Map | null>(null)
+
+  useEffect(() => {
+    if (!mapRef.current) {
+      mapRef.current = L.map('map').setView(pickupLocation, 13)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(mapRef.current)
+    }
+
+    const map = mapRef.current
+
+    map.eachLayer(layer => {
+      if (layer instanceof L.Marker || layer instanceof L.Polyline) {
+        layer.remove()
+      }
+    })
+
+    const pickupIcon = L.icon({
+      iconUrl: '/images/map/pickup-marker.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32]
+    })
+
+    const dropoffIcon = L.icon({
+      iconUrl: '/images/map/dropoff-marker.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32]
+    })
+
+    const truckIcon = L.icon({
+      iconUrl: '/images/map/truck-marker.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32]
+    })
+
+    L.marker(pickupLocation, { icon: pickupIcon }).addTo(map)
+    L.marker(dropoffLocation, { icon: dropoffIcon }).addTo(map)
+    L.marker(truckLocation, { icon: truckIcon }).addTo(map)
+
+    if (progressIndex > 0) {
+      L.polyline(routeCoordinates.slice(0, progressIndex + 1), {
+        color: '#4CAF50',
+        weight: 4
+      }).addTo(map)
+    }
+
+    if (progressIndex < routeCoordinates.length - 1) {
+      L.polyline(routeCoordinates.slice(progressIndex), {
+        color: '#4CAF50',
+        weight: 4,
+        opacity: 0.5,
+        dashArray: '10, 10'
+      }).addTo(map)
+    }
+
+    const bounds = L.latLngBounds([pickupLocation, dropoffLocation, truckLocation])
+    map.fitBounds(bounds, { padding: [50, 50] })
+  }, [pickupLocation, dropoffLocation, truckLocation, routeCoordinates, progressIndex])
+
+  return <div id="map" style={{ height: '400px', width: '100%' }} />
+}
 
 export default function DeliveryDetailDisplay({ delivery, customer, driver, vehicle }: DeliveryDetailProps) {
   const getStatusColor = (status: Delivery['status']) => {
@@ -128,6 +204,21 @@ export default function DeliveryDetailDisplay({ delivery, customer, driver, vehi
       return '#bdbdbd'; // grey.400 - pending
     }
   };
+
+  // Add this temporary data (you should get real coordinates from your delivery object)
+  const mapData = {
+    pickupLocation: [51.505, -0.09] as [number, number],
+    dropoffLocation: [51.51, -0.1] as [number, number],
+    truckLocation: [51.507, -0.095] as [number, number],
+    routeCoordinates: [
+      [51.505, -0.09],
+      [51.506, -0.092],
+      [51.507, -0.095],
+      [51.508, -0.097],
+      [51.51, -0.1]
+    ] as [number, number][],
+    progressIndex: 2
+  }
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -234,17 +325,8 @@ export default function DeliveryDetailDisplay({ delivery, customer, driver, vehi
                 Delivery Route Map
               </Box>
             </Typography>
-            <Box 
-              sx={{ 
-                height: 400, 
-                backgroundColor: 'grey.100', 
-                borderRadius: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <Typography color="text.secondary">Map will be displayed here</Typography>
+            <Box sx={{ borderRadius: 1 }}>
+              <DeliveryMap {...mapData} />
             </Box>
           </Box>
         </CardContent>

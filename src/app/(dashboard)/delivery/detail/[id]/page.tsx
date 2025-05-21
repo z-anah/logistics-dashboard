@@ -1,3 +1,5 @@
+'use client'
+
 import { notFound } from 'next/navigation'
 import DeliveryDetailDisplay from '../components/DeliveryDetailDisplay'
 import { deliveriesById } from '@/data/deliveries'
@@ -21,11 +23,13 @@ export default function DeliveryDetail({ params }: { params: { id: string } }) {
   }
 
   return (
-    <DeliveryDetailDisplay 
-      delivery={delivery}
-      customer={customer}
-      driver={driver}
-      vehicle={vehicle}
-    />
+    <div className='p-4'>
+      <DeliveryDetailDisplay 
+        delivery={delivery}
+        customer={customer}
+        driver={driver}
+        vehicle={vehicle}
+      />
+    </div>
   )
 }

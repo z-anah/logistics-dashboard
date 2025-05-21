@@ -1,5 +1,6 @@
 // Third-party Imports
 import 'react-perfect-scrollbar/dist/css/styles.css'
+import 'leaflet/dist/leaflet.css'
 
 // Type Imports
 import type { ChildrenType } from '@core/types'
