@@ -18,6 +18,7 @@ This project showcases my ability to build **business-critical back-office tools
 - 📍 **Tracking logic UI** for delivery status & locations  
 - 🗂️ **Admin layout** with sidebar navigation, routing, and roles  
 - 💬 **Real-time chat system** with quick replies and message history
+- 📅 **Calendar View** for scheduling and delivery management
 - 🔒 **Auth pages** with role-based access templates  
 
 ---
